@@ -58,20 +58,11 @@ Since $d < n, X^T X$ is invertible, we can multiply $(X^T X)^{-1}$ to both sides
     \mhat w = X^T\m a = X^T(XX^T)^{-1}\m t.
 \end{align*}
 
-\textbf{1.3.4:} The code for \verb|fit_poly|, the plot of the polynomials, and the plot of the test losses vs. degree of polynomial are as follows:
-\begin{verbatim}
-    def fit_poly(X, d, t):
-        X_expand = poly_expand(X, d=d, poly_type=poly_type)
-        n = X.shape[0]
-        if d > n:
-            W = X_expand.T @ np.linalg.inv(X_expand @ X_expand.T).dot(t)
-        else:
-            W = np.linalg.inv(X_expand.T @ X_expand) @ X_expand.T.dot(t)
-        return W
-\end{verbatim}
+\textbf{1.3.4:} The plot of the polynomials and the plot of the test losses vs. degree of polynomial are as follows:
 \begin{center}
-\includegraphics[scale=.75]{1.3.4_poly.png}
-\includegraphics[scale=.75]{1.3.4_loss.png}\end{center}
+    \includegraphics[scale=.75]{1.3.4-1.png}
+    \includegraphics[scale=.75]{1.3.4-2.png}
+\end{center}
 
 Overparameterization does not always lead to overfitting. As shown in the last plot, the test loss decreases when the degree of polynomial is around $10^2$, indicating that a higher degree polynomial does not always have a higher test error.
 
